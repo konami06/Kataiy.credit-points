@@ -1,1 +1,1053 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Kataiy.credit-points</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, "Noto Sans Thai", sans-serif;
+    background: #fff8fa;
+    color: #5d4650;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    background: rgba(255,255,255,0.95);
+    padding: 18px 5%;
+    border-bottom: 1px solid #f5dce4;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ed7f9d;
+}
+
+.logo span {
+    display: block;
+    font-size: 12px;
+    color: #a88792;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+    color: #765963;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+nav button:hover {
+    background: #fff0f4;
+    color: #ed7294;
+}
+
+/* ---------- MAIN ---------- */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 18px 50px;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    background: linear-gradient(135deg, #ffe4ec, #f3efff);
+    border-radius: 30px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid #f7dbe4;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 38px;
+    color: #e87898;
+}
+
+.hero p {
+    margin: 7px 0;
+    color: #795d68;
+    font-size: 17px;
+}
+
+.bunny {
+    font-size: 105px;
+    padding-right: 30px;
+}
+
+/* ---------- SEARCH ---------- */
+
+.search-area {
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px rgba(220,160,180,0.12);
+    margin-bottom: 22px;
+}
+
+.search-row {
+    display: flex;
+    gap: 12px;
+}
+
+.search-row input {
+    flex: 1;
+    border: 2px solid #f1dce3;
+    border-radius: 18px;
+    padding: 14px 18px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-row input:focus {
+    border-color: #f3a1b8;
+}
+
+.add-btn {
+    border: none;
+    background: #f58ca7;
+    color: white;
+    border-radius: 18px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ---------- CUSTOMER ---------- */
+
+.customer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.customer {
+    background: white;
+    border-radius: 22px;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 16px rgba(200,150,170,0.10);
+    border: 1px solid #f7e3e8;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #ffe3eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+}
+
+.customer-info {
+    flex: 1;
+}
+
+.customer-name {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.customer-id {
+    color: #aa929a;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.credit-box {
+    background: #fff5dc;
+    border-radius: 15px;
+    padding: 8px 18px;
+    text-align: center;
+    min-width: 85px;
+}
+
+.credit-number {
+    font-size: 21px;
+    font-weight: bold;
+    color: #e79b38;
+}
+
+.credit-label {
+    font-size: 12px;
+    color: #9b8060;
+}
+
+.actions {
+    display: flex;
+    gap: 7px;
+}
+
+.minus,
+.plus,
+.delete {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+}
+
+.minus {
+    background: #ffe0e8;
+    color: #df7190;
+}
+
+.plus {
+    background: #e0ebff;
+    color: #668fd8;
+}
+
+.delete {
+    background: #f5f5f5;
+    color: #999;
+    font-size: 15px;
+}
+
+/* ---------- CARDS ---------- */
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 25px;
+    padding: 23px;
+    border: 1px solid #f5e1e7;
+    box-shadow: 0 5px 20px rgba(220,160,180,0.10);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #e87898;
+}
+
+.review {
+    border-top: 1px solid #f4e4e8;
+    padding: 14px 0;
+}
+
+.stars {
+    color: #f3ad48;
+    letter-spacing: 2px;
+}
+
+.shop-item {
+    padding: 11px 0;
+    border-bottom: 1px solid #f5e7eb;
+}
+
+/* ---------- MODAL ---------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(80,50,60,0.35);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 50;
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 430px;
+    border-radius: 28px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-top: 0;
+    color: #e87898;
+}
+
+.modal-box input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #f0dce3;
+    border-radius: 15px;
+    margin: 8px 0 15px;
+    outline: none;
+    font-size: 16px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 15px;
+}
+
+.save {
+    background: #f58ca7;
+    color: white;
+}
+
+.cancel {
+    background: #f4f4f4;
+    color: #666;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: #a88994;
+    font-size: 14px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:700px) {
+
+    header {
+        padding: 14px;
+    }
+
+    .header-inner {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .bunny {
+        font-size: 65px;
+        padding-right: 0;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+
+    .add-btn {
+        padding: 13px;
+    }
+
+    .customer {
+        flex-wrap: wrap;
+    }
+
+    .credit-box {
+        margin-left: auto;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="logo">
+            🎀 Kataiy
+            <span>CREDIT POINTS</span>
+        </div>
+
+        <nav>
+            <button onclick="scrollToTop()">🏠 หน้าแรก</button>
+            <button onclick="focusSearch()">🔎 รายการเครดิต</button>
+            <button onclick="scrollToReviews()">⭐ รีวิว</button>
+            <button onclick="scrollToShop()">⚙️ ข้อมูลร้าน</button>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>ยินดีต้อนรับ 💗</h1>
+
+            <p>
+                <strong>Kataiy.credit-points</strong>
+            </p>
+
+            <p>
+                ระบบจัดการเครดิตลูกค้าแบบง่าย ๆ
+                น่ารัก และใช้งานสะดวก
+            </p>
+
+            <p>
+                ✨ ขอบคุณที่ไว้วางใจร้านนะคะ ✨
+            </p>
+
+        </div>
+
+        <div class="bunny">
+            🐰🎀
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="search-area" id="searchArea">
+
+        <div class="search-row">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="🔍 ค้นหาชื่อลูกค้า หรือรหัส..."
+                oninput="renderCustomers()"
+            >
+
+            <button
+                class="add-btn"
+                onclick="openModal()"
+            >
+                ＋ เพิ่มลูกค้า
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOMERS -->
+
+    <section>
+
+        <div
+            id="customerList"
+            class="customer-list"
+        ></div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="cards">
+
+        <div
+            class="card"
+            id="reviews"
+        >
+
+            <h2>⭐ รีวิวจากลูกค้า</h2>
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <strong>น้องโม</strong>
+
+                <p>
+                    ร้านน่ารักมาก บริการดีสุด ๆ เลยค่ะ 💗
+                </p>
+
+            </div>
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <strong>น้องมิ้น</strong>
+
+                <p>
+                    เครดิตขึ้นไวมาก ใช้งานง่ายมากค่ะ ✨
+                </p>
+
+            </div>
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <strong>น้องเมย์</strong>
+
+                <p>
+                    ประทับใจบริการมาก ๆ ค่ะ 🎀
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="card"
+            id="shop"
+        >
+
+            <h2>🏠 ข้อมูลร้าน</h2>
+
+            <div class="shop-item">
+                🎀 <strong>Kataiy.credit-points</strong>
+            </div>
+
+            <div class="shop-item">
+                🛡️ ดูแลข้อมูลลูกค้าอย่างใส่ใจ
+            </div>
+
+            <div class="shop-item">
+                ⚡ อัปเดตเครดิตได้ทันที
+            </div>
+
+            <div class="shop-item">
+                💗 ขอบคุณทุกคนที่ไว้วางใจร้านนะคะ
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 Kataiy.credit-points
+    <br>
+    ขอบคุณที่ใช้บริการนะคะ ♡
+</footer>
+
+
+<!-- ADD CUSTOMER MODAL -->
+
+<div
+    class="modal"
+    id="customerModal"
+>
+
+    <div class="modal-box">
+
+        <h2>🎀 เพิ่มลูกค้า</h2>
+
+        <label>ชื่อลูกค้า</label>
+
+        <input
+            id="customerName"
+            type="text"
+            placeholder="เช่น น้องน้ำ"
+        >
+
+        <label>เครดิตเริ่มต้น</label>
+
+        <input
+            id="customerCredit"
+            type="number"
+            value="0"
+            min="0"
+        >
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel"
+                onclick="closeModal()"
+            >
+                ยกเลิก
+            </button>
+
+            <button
+                class="save"
+                onclick="addCustomer()"
+            >
+                บันทึก 💗
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CUSTOMER DATA
+========================= */
+
+let customers =
+    JSON.parse(localStorage.getItem("kataiyCustomers")) || [
+        {
+            id: "KT001",
+            name: "น้องน้ำ",
+            credit: 12
+        },
+        {
+            id: "KT002",
+            name: "น้องมายด์",
+            credit: 5
+        },
+        {
+            id: "KT003",
+            name: "น้องฟ้า",
+            credit: 20
+        }
+    ];
+
+
+/* =========================
+   SAVE DATA
+========================= */
+
+function saveCustomers() {
+
+    localStorage.setItem(
+        "kataiyCustomers",
+        JSON.stringify(customers)
+    );
+
+}
+
+
+/* =========================
+   DISPLAY CUSTOMERS
+========================= */
+
+function renderCustomers() {
+
+    const list =
+        document.getElementById("customerList");
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    list.innerHTML = "";
+
+    const filtered =
+        customers.filter(customer =>
+            customer.name.toLowerCase().includes(search) ||
+            customer.id.toLowerCase().includes(search)
+        );
+
+
+    if (filtered.length === 0) {
+
+        list.innerHTML = `
+            <div class="card" style="text-align:center">
+                🐰
+                <br><br>
+                ไม่พบลูกค้าที่ค้นหาค่ะ
+            </div>
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(customer => {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "customer";
+
+
+        item.innerHTML = `
+
+            <div class="avatar">
+                🐰
+            </div>
+
+            <div class="customer-info">
+
+                <div class="customer-name">
+                    ${escapeHTML(customer.name)}
+                </div>
+
+                <div class="customer-id">
+                    #${customer.id}
+                </div>
+
+            </div>
+
+
+            <div class="credit-box">
+
+                <div class="credit-number">
+                    ${customer.credit}
+                </div>
+
+                <div class="credit-label">
+                    เครดิต
+                </div>
+
+            </div>
+
+
+            <div class="actions">
+
+                <button
+                    class="minus"
+                    onclick="changeCredit('${customer.id}', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    class="plus"
+                    onclick="changeCredit('${customer.id}', 1)"
+                >
+                    +
+                </button>
+
+                <button
+                    class="delete"
+                    onclick="deleteCustomer('${customer.id}')"
+                >
+                    🗑
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================
+   CHANGE CREDIT
+========================= */
+
+function changeCredit(id, amount) {
+
+    const customer =
+        customers.find(c => c.id === id);
+
+    if (!customer) return;
+
+
+    customer.credit += amount;
+
+
+    if (customer.credit < 0) {
+        customer.credit = 0;
+    }
+
+
+    saveCustomers();
+
+    renderCustomers();
+
+}
+
+
+/* =========================
+   DELETE CUSTOMER
+========================= */
+
+function deleteCustomer(id) {
+
+    const customer =
+        customers.find(c => c.id === id);
+
+    if (!customer) return;
+
+
+    const confirmDelete =
+        confirm(
+            "ต้องการลบ " +
+            customer.name +
+            " ใช่ไหมคะ?"
+        );
+
+
+    if (!confirmDelete) return;
+
+
+    customers =
+        customers.filter(
+            c => c.id !== id
+        );
+
+
+    saveCustomers();
+
+    renderCustomers();
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openModal() {
+
+    document
+        .getElementById("customerModal")
+        .style.display = "flex";
+
+    document
+        .getElementById("customerName")
+        .focus();
+
+}
+
+
+function closeModal() {
+
+    document
+        .getElementById("customerModal")
+        .style.display = "none";
+
+    document
+        .getElementById("customerName")
+        .value = "";
+
+    document
+        .getElementById("customerCredit")
+        .value = "0";
+
+}
+
+
+/* =========================
+   ADD CUSTOMER
+========================= */
+
+function addCustomer() {
+
+    const name =
+        document
+        .getElementById("customerName")
+        .value
+        .trim();
+
+
+    const credit =
+        Number(
+            document
+            .getElementById("customerCredit")
+            .value
+        );
+
+
+    if (!name) {
+
+        alert("กรุณาใส่ชื่อลูกค้าค่ะ 💗");
+
+        return;
+    }
+
+
+    const number =
+        customers.length + 1;
+
+
+    const id =
+        "KT" +
+        String(number).padStart(3, "0");
+
+
+    customers.push({
+
+        id: id,
+
+        name: name,
+
+        credit:
+            credit >= 0
+            ? credit
+            : 0
+
+    });
+
+
+    saveCustomers();
+
+    renderCustomers();
+
+    closeModal();
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function focusSearch() {
+
+    document
+        .getElementById("searchArea")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    setTimeout(() => {
+
+        document
+            .getElementById("searchInput")
+            .focus();
+
+    }, 500);
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function scrollToTop() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+function scrollToReviews() {
+
+    document
+        .getElementById("reviews")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function scrollToShop() {
+
+    document
+        .getElementById("shop")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+renderCustomers();
+
+</script>
+
+</body>
+</html>
