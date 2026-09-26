@@ -1,0 +1,1 @@
+# Kataiy.credit-points
