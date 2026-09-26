@@ -807,7 +807,7 @@ function renderCustomers() {
    CHANGE CREDIT
 ========================= */
 
-function changeCredit(id, amount) {
+function changePoints(id, amount) {
 
     const customer =
         customers.find(c => c.id === id);
@@ -815,11 +815,11 @@ function changeCredit(id, amount) {
     if (!customer) return;
 
 
-    customer.credit += amount;
+    customer.points += amount;
 
 
-    if (customer.credit < 0) {
-        customer.credit = 0;
+    if (customer.points < 0) {
+        customer.points = 0;
     }
 
 
