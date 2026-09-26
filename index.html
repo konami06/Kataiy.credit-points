@@ -1041,7 +1041,29 @@ function escapeHTML(text) {
 ========================= */
 
 renderCustomers();
+const ADMIN_PASSWORD = "123456";
 
+function adminLogin() {
+    const password = prompt("กรุณาใส่รหัส Admin 🔐");
+
+    if (password === ADMIN_PASSWORD) {
+        sessionStorage.setItem("adminLogin", "true");
+        alert("เข้าสู่ระบบ Admin สำเร็จ 💗");
+        location.reload();
+    } else if (password !== null) {
+        alert("รหัส Admin ไม่ถูกต้อง ❌");
+    }
+}
+
+function adminLogout() {
+    sessionStorage.removeItem("adminLogin");
+    alert("ออกจากระบบ Admin แล้วค่ะ");
+    location.reload();
+}
+
+function isAdmin() {
+    return sessionStorage.getItem("adminLogin") === "true";
+}
 </script>
 
 </body>
