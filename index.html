@@ -1049,7 +1049,7 @@ function adminLogin() {
     if (password === ADMIN_PASSWORD) {
         sessionStorage.setItem("adminLogin", "true");
         alert("เข้าสู่ระบบ Admin สำเร็จ 💗");
-        location.reload();
+        showAdminPanel();
     } else if (password !== null) {
         alert("รหัส Admin ไม่ถูกต้อง ❌");
     }
@@ -1064,7 +1064,21 @@ function adminLogout() {
 function isAdmin() {
     return sessionStorage.getItem("adminLogin") === "true";
 }
+    
+function showAdminPanel() {
+    if (isAdmin()) {
+        document.getElementById("adminPanel").style.display = "block";
+    }
+}
+
 </script>
 <button onclick="adminLogin()">🔐 เข้าสู่ระบบ Admin</button>
+    
+<div id="adminPanel" style="display:none;">
+    <h2>🔐 Admin Panel</h2>
+    <p>เข้าสู่ระบบ Admin สำเร็จ 💗</p>
+    <button onclick="adminLogout()">🚪 ออกจากระบบ Admin</button>
+</div>
+
 </body>
 </html>
