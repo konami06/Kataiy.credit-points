@@ -1070,13 +1070,46 @@ function showAdminPanel() {
         document.getElementById("adminPanel").style.display = "block";
     }
 }
+function addCustomer() {
+    const name = document.getElementById("customerName").value.trim();
+    const points = Number(document.getElementById("customerPoints").value);
 
+    if (!name) {
+        alert("กรุณาใส่ชื่อลูกค้า 💗");
+        return;
+    }
+
+    if (isNaN(points) || points < 0) {
+        alert("กรุณาใส่จำนวนแต้มให้ถูกต้อง");
+        return;
+    }
+
+    const id = "KT" + String(customers.length + 1).padStart(3, "0");
+
+    customers.push({
+        id: id,
+        name: name,
+        points: points
+    });
+
+    saveCustomers();
+    renderCustomers();
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPoints").value = "";
+
+    alert("เพิ่มลูกค้าสำเร็จ 💗");
+}
 </script>
 <button onclick="adminLogin()">🔐 เข้าสู่ระบบ Admin</button>
     
 <div id="adminPanel" style="display:none;">
     <h2>🔐 Admin Panel</h2>
     <p>เข้าสู่ระบบ Admin สำเร็จ 💗</p>
+    <h3>➕ เพิ่มลูกค้า</h3>
+<input id="customerName" type="text" placeholder="ชื่อลูกค้า">
+<input id="customerPoints" type="number" placeholder="จำนวนแต้ม">
+<button onclick="addCustomer()">เพิ่มลูกค้า</button>
     <button onclick="adminLogout()">🚪 ออกจากระบบ Admin</button>
 </div>
 
