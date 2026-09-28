@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Kataiy.credit-points</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Thai",sans-serif;
+  background:#fff8fa;
+  color:#5d4650;
+}
+
+button,input,textarea,select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+header{
+  background:white;
+  padding:18px 5%;
+  border-bottom:1px solid #f0dce4;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+  color:#ed7f9d;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  color:#a88792;
+}
+
+.logout{
+  border:0;
+  background:#f7dce5;
+  color:#9d5068;
+  padding:10px 18px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px 60px;
+}
+
+h1{
+  color:#d86f91;
+}
+
+h2{
+  color:#d86f91;
+  margin-top:0;
+}
+
+.card{
+  background:white;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(220,160,180,.12);
+  border:1px solid #f4e1e7;
+}
+
+input,textarea,select{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ead4dc;
+  border-radius:12px;
+  outline:none;
+  margin:6px 0 12px;
+  background:white;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+input:focus,textarea:focus,select:focus{
+  border-color:#e99ab2;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.btn{
+  border:0;
+  padding:11px 17px;
+  border-radius:12px;
+  font-weight:bold;
+  margin:3px;
+}
+
+.primary{
+  background:#ed7f9d;
+  color:white;
+}
+
+.green{
+  background:#dff4e8;
+  color:#34734c;
+}
+
+.red{
+  background:#ffe1e1;
+  color:#a74343;
+}
+
+.gray{
+  background:#eee;
+  color:#555;
+}
+
+.customer{
+  border:1px solid #f0dce4;
+  border-radius:18px;
+  padding:16px;
+  margin-top:12px;
+}
+
+.customer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.customer-name{
+  font-size:18px;
+  font-weight:bold;
+  color:#d86f91;
+}
+
+.points{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.small{
+  color:#9a8089;
+  font-size:13px;
+}
+
+.review{
+  border:1px solid #f0dce4;
+  padding:15px;
+  border-radius:16px;
+  margin-top:10px;
+}
+
+.stars{
+  color:#e6a329;
+  font-size:20px;
+}
+
+.login{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:400px;
+  background:white;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 10px 35px rgba(200,140,160,.18);
+  text-align:center;
+}
+
+.login-box h1{
+  margin-top:0;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin-bottom:20px;
+}
+
+.tab{
+  white-space:nowrap;
+  border:0;
+  background:white;
+  color:#8b6d78;
+  padding:11px 16px;
+  border-radius:20px;
+}
+
+.tab.active{
+  background:#ed7f9d;
+  color:white;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.stat{
+  background:#fff2f6;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:25px;
+  color:#d86f91;
+}
+
+@media(max-width:650px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .stat-grid{
+    grid-template-columns:1fr;
+  }
+
+  .customer-top{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login">
+  <div class="login-box">
+    <h1>🔐 Admin</h1>
+    <p>เข้าสู่ระบบจัดการ Kataiy.credit-points</p>
+
+    <input
+      id="adminPassword"
+      type="password"
+      placeholder="รหัสผ่าน Admin"
+    >
+
+    <button class="btn primary" style="width:100%" onclick="login()">
+      🔓 เข้าสู่ระบบ
+    </button>
+
+    <p id="loginError" class="small"></p>
+  </div>
+</div>
+
+
+<!-- ADMIN -->
+<div id="adminPage" class="hidden">
+
+<header>
+  <div class="header-inner">
+
+    <div class="logo">
+      Kataiy.credit-points
+      <span>ADMIN PANEL</span>
+    </div>
+
+    <button class="logout" onclick="logout()">
+      🚪 ออกจากระบบ
+    </button>
+
+  </div>
+</header>
+
+
+<div class="container">
+
+  <h1>⚙️ ระบบจัดการหลังบ้าน</h1>
+
+  <div class="stat-grid">
+
+    <div class="stat">
+      <strong id="totalCustomers">0</strong>
+      ลูกค้าทั้งหมด
+    </div>
+
+    <div class="stat">
+      <strong id="totalPlus">0</strong>
+      Plus One
+    </div>
+
+    <div class="stat">
+      <strong id="totalMinus">0</strong>
+      Minus One
+    </div>
+
+  </div>
+
+  <br>
+
+
+  <div class="tabs">
+
+    <button class="tab active" onclick="showTab('customers',this)">
+      👤 ลูกค้า
+    </button>
+
+    <button class="tab" onclick="showTab('reviews',this)">
+      ⭐ รีวิว
+    </button>
+
+    <button class="tab" onclick="showTab('credit',this)">
+      👍 เครดิต
+    </button>
+
+    <button class="tab" onclick="showTab('website',this)">
+      ✏️ แก้ไขเว็บไซต์
+    </button>
+
+  </div>
+
+
+  <!-- CUSTOMERS -->
+  <section id="customers" class="tabContent">
+
+    <div class="card">
+
+      <h2>➕ เพิ่มลูกค้า</h2>
+
+      <div class="grid">
+
+        <div>
+          <label>ชื่อลูกค้า</label>
+          <input id="newName" placeholder="ชื่อหรือชื่อเล่นลูกค้า">
+        </div>
+
+        <div>
+          <label>คะแนนเริ่มต้น</label>
+          <input id="newPoints" type="number" value="0">
+        </div>
+
+      </div>
+
+      <button class="btn primary" onclick="addCustomer()">
+        ➕ เพิ่มลูกค้า
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>👤 จัดการลูกค้า</h2>
+
+      <input
+        id="customerSearch"
+        placeholder="🔎 ค้นหาชื่อลูกค้า..."
+        oninput="renderCustomers()"
+      >
+
+      <div id="customerList"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="tabContent hidden">
+
+    <div class="card">
+
+      <h2>⭐ รีวิวจากลูกค้า</h2>
+
+      <div id="reviewList"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CREDIT -->
+  <section id="credit" class="tabContent hidden">
+
+    <div class="card">
+
+      <h2>👍 ระบบเครดิต</h2>
+
+      <p>
+        <b>Plus One</b> =
+        จำนวนเครดิตด้านบวก
+      </p>
+
+      <p>
+        <b>Minus One</b> =
+        จำนวนรายการเครดิตด้านลบ
+      </p>
+
+      <div class="grid">
+
+        <div>
+          <label>Plus One</label>
+          <input id="plusInput" type="number" min="0" value="0">
+        </div>
+
+        <div>
+          <label>Minus One</label>
+          <input id="minusInput" type="number" min="0" value="0">
+        </div>
+
+      </div>
+
+      <button class="btn primary" onclick="saveCredit()">
+        💾 บันทึกเครดิต
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>📷 หลักฐาน Minus One</h2>
+
+      <div id="minusList"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WEBSITE -->
+  <section id="website" class="tabContent hidden">
+
+    <div class="card">
+
+      <h2>✏️ แก้ไขข้อความในเว็บไซต์</h2>
+
+      <p class="small">
+        ตรงนี้สามารถเตรียมข้อความที่ต้องการให้หน้าเว็บไซต์แสดงได้
+      </p>
+
+      <label>ชื่อร้าน</label>
+      <input id="siteName">
+
+      <label>หัวข้อหลัก</label>
+      <input id="siteTitle">
+
+      <label>คำอธิบาย</label>
+      <textarea id="siteDescription"></textarea>
+
+      <label>ข้อความปุ่มค้นหา</label>
+      <input id="searchButtonText">
+
+      <label>ข้อความส่วนรีวิว</label>
+      <input id="reviewTitle">
+
+      <button class="btn primary" onclick="saveWebsite()">
+        💾 บันทึกข้อความเว็บไซต์
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
+</div>
+
+
+<script>
+
+const ADMIN_PASSWORD = "123456";
+
+let customers =
+  JSON.parse(localStorage.getItem("customers") || "[]");
+
+let reviews =
+  JSON.parse(localStorage.getItem("reviews") || "[]");
+
+let credit =
+  JSON.parse(localStorage.getItem("creditData") || '{"plus":0,"minus":0}');
+
+let website =
+  JSON.parse(localStorage.getItem("websiteData") || "{}");
+
+
+function login(){
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  if(password === ADMIN_PASSWORD){
+
+    sessionStorage.setItem("adminLogin","true");
+
+    document
+      .getElementById("loginPage")
+      .classList.add("hidden");
+
+    document
+      .getElementById("adminPage")
+      .classList.remove("hidden");
+
+    loadAdmin();
+
+  }else{
+
+    document.getElementById("loginError").textContent =
+      "❌ รหัสผ่านไม่ถูกต้อง";
+
+  }
+}
+
+
+function logout(){
+
+  sessionStorage.removeItem("adminLogin");
+
+  location.reload();
+
+}
+
+
+function showTab(id,button){
+
+  document
+    .querySelectorAll(".tabContent")
+    .forEach(x => x.classList.add("hidden"));
+
+  document
+    .getElementById(id)
+    .classList.remove("hidden");
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(x => x.classList.remove("active"));
+
+  button.classList.add("active");
+
+}
+
+
+function saveCustomers(){
+
+  localStorage.setItem(
+    "customers",
+    JSON.stringify(customers)
+  );
+
+}
+
+
+function addCustomer(){
+
+  const name =
+    document.getElementById("newName").value.trim();
+
+  const points =
+    Number(document.getElementById("newPoints").value);
+
+  if(!name){
+
+    alert("กรุณาใส่ชื่อลูกค้า");
+
+    return;
+  }
+
+  if(isNaN(points) || points < 0){
+
+    alert("กรุณาใส่คะแนนให้ถูกต้อง");
+
+    return;
+  }
+
+  const id =
+    "KT" +
+    String(customers.length + 1).padStart(3,"0");
+
+  customers.push({
+    id:id,
+    name:name,
+    points:points
+  });
+
+  saveCustomers();
+
+  document.getElementById("newName").value="";
+  document.getElementById("newPoints").value="0";
+
+  renderCustomers();
+
+  alert("เพิ่มลูกค้าสำเร็จ 💗");
+
+}
+
+
+function renderCustomers(){
+
+  const list =
+    document.getElementById("customerList");
+
+  const search =
+    document
+      .getElementById("customerSearch")
+      .value
+      .toLowerCase();
+
+  list.innerHTML="";
+
+  const filtered =
+    customers.filter(c =>
+      c.name.toLowerCase().includes(search)
+    );
+
+  if(filtered.length === 0){
+
+    list.innerHTML =
+      "<p class='small'>ยังไม่มีลูกค้า</p>";
+
+    return;
+  }
+
+  filtered.forEach((customer)=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className="customer";
+
+    div.innerHTML=`
+
+      <div class="customer-top">
+
+        <div>
+          <div class="customer-name">
+            ${escapeHTML(customer.name)}
+          </div>
+
+          <div class="small">
+            ID: ${customer.id}
+          </div>
+        </div>
+
+        <div class="points">
+          💎 ${customer.points} คะแนน
+        </div>
+
+      </div>
+
+      <hr>
+
+      <button
+        class="btn green"
+        onclick="changePoints('${customer.id}',1)"
+      >
+        ➕ เพิ่ม 1
+      </button>
+
+      <button
+        class="btn red"
+        onclick="changePoints('${customer.id}',-1)"
+      >
+        ➖ ลด 1
+      </button>
+
+      <button
+        class="btn gray"
+        onclick="editCustomer('${customer.id}')"
+      >
+        ✏️ แก้ไข
+      </button>
+
+      <button
+        class="btn red"
+        onclick="deleteCustomer('${customer.id}')"
+      >
+        🗑️ ลบ
+      </button>
+
+    `;
+
+    list.appendChild(div);
+
+  });
+
+}
+
+
+function changePoints(id,amount){
+
+  const customer =
+    customers.find(c => c.id === id);
+
+  if(!customer) return;
+
+  customer.points =
+    Math.max(0,Number(customer.points)+amount);
+
+  saveCustomers();
+
+  renderCustomers();
+
+}
+
+
+function editCustomer(id){
+
+  const customer =
+    customers.find(c => c.id === id);
+
+  if(!customer) return;
+
+  const name =
+    prompt("แก้ไขชื่อลูกค้า:",customer.name);
+
+  if(name === null) return;
+
+  const points =
+    prompt("แก้ไขคะแนน:",customer.points);
+
+  if(points === null) return;
+
+  customer.name =
+    name.trim() || customer.name;
+
+  customer.points =
+    Math.max(0,Number(points) || 0);
+
+  saveCustomers();
+
+  renderCustomers();
+
+}
+
+
+function deleteCustomer(id){
+
+  const customer =
+    customers.find(c => c.id === id);
+
+  if(!customer) return;
+
+  if(!confirm(
+    "ต้องการลบลูกค้า "+customer.name+" ใช่หรือไม่?"
+  )) return;
+
+  customers =
+    customers.filter(c => c.id !== id);
+
+  saveCustomers();
+
+  renderCustomers();
+
+}
+
+
+function saveCredit(){
+
+  const plus =
+    Number(document.getElementById("plusInput").value);
+
+  const minus =
+    Number(document.getElementById("minusInput").value);
+
+  credit = {
+    plus:Math.max(0,plus || 0),
+    minus:Math.max(0,minus || 0)
+  };
+
+  localStorage.setItem(
+    "creditData",
+    JSON.stringify(credit)
+  );
+
+  updateStats();
+
+  alert("บันทึกเครดิตเรียบร้อย ❤️");
+
+}
+
+
+function renderReviews(){
+
+  const list =
+    document.getElementById("reviewList");
+
+  list.innerHTML="";
+
+  if(reviews.length===0){
+
+    list.innerHTML =
+      "<p class='small'>ยังไม่มีรีวิว</p>";
+
+    return;
+  }
+
+  reviews.forEach((review,index)=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className="review";
+
+    const stars =
+      "★".repeat(Number(review.stars)||0) +
+      "☆".repeat(5-(Number(review.stars)||0));
+
+    div.innerHTML=`
+
+      <div class="stars">${stars}</div>
+
+      <b>${escapeHTML(review.name || "ลูกค้า")}</b>
+
+      <p>
+        ${escapeHTML(review.text || "")}
+      </p>
+
+      <button
+        class="btn red"
+        onclick="deleteReview(${index})"
+      >
+        🗑️ ลบรีวิว
+      </button>
+
+    `;
+
+    list.appendChild(div);
+
+  });
+
+}
+
+
+function deleteReview(index){
+
+  if(!confirm("ต้องการลบรีวิวนี้หรือไม่?"))
+    return;
+
+  reviews.splice(index,1);
+
+  localStorage.setItem(
+    "reviews",
+    JSON.stringify(reviews)
+  );
+
+  renderReviews();
+
+}
+
+
+function renderMinus(){
+
+  const list =
+    document.getElementById("minusList");
+
+  list.innerHTML =
+    "<p class='small'>จำนวน Minus One ปัจจุบัน: "+
+    credit.minus+
+    "</p>";
+
+}
+
+
+function saveWebsite(){
+
+  website = {
+
+    name:
+      document.getElementById("siteName").value,
+
+    title:
+      document.getElementById("siteTitle").value,
+
+    description:
+      document.getElementById("siteDescription").value,
+
+    searchButton:
+      document.getElementById("searchButtonText").value,
+
+    reviewTitle:
+      document.getElementById("reviewTitle").value
+
+  };
+
+  localStorage.setItem(
+    "websiteData",
+    JSON.stringify(website)
+  );
+
+  alert(
+    "บันทึกข้อความเรียบร้อย ❤️"
+  );
+
+}
+
+
+function loadWebsite(){
+
+  document.getElementById("siteName").value =
+    website.name || "";
+
+  document.getElementById("siteTitle").value =
+    website.title || "";
+
+  document.getElementById("siteDescription").value =
+    website.description || "";
+
+  document.getElementById("searchButtonText").value =
+    website.searchButton || "";
+
+  document.getElementById("reviewTitle").value =
+    website.reviewTitle || "";
+
+}
+
+
+function updateStats(){
+
+  document.getElementById("totalCustomers").textContent =
+    customers.length;
+
+  document.getElementById("totalPlus").textContent =
+    credit.plus;
+
+  document.getElementById("totalMinus").textContent =
+    credit.minus;
+
+  document.getElementById("plusInput").value =
+    credit.plus;
+
+  document.getElementById("minusInput").value =
+    credit.minus;
+
+}
+
+
+function loadAdmin(){
+
+  updateStats();
+
+  renderCustomers();
+
+  renderReviews();
+
+  renderMinus();
+
+  loadWebsite();
+
+}
+
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+if(sessionStorage.getItem("adminLogin")==="true"){
+
+  document
+    .getElementById("loginPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminPage")
+    .classList.remove("hidden");
+
+  loadAdmin();
+
+}
+
+</script>
+
+</body>
+</html>
