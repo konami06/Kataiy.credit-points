@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin | Kataiy.credit-points</title>
+<title>Admin | Katay.credit-points</title>
 
 <style>
 *{
@@ -12,175 +12,9 @@
 
 body{
   margin:0;
-  font-family:Arial,"Noto Sans Thai",sans-serif;
-  background:#fff8fa;
-  color:#5d4650;
-}
-
-button,input,textarea,select{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-header{
-  background:white;
-  padding:18px 5%;
-  border-bottom:1px solid #f0dce4;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-size:23px;
-  font-weight:bold;
-  color:#ed7f9d;
-}
-
-.logo span{
-  display:block;
-  font-size:11px;
-  color:#a88792;
-}
-
-.logout{
-  border:0;
-  background:#f7dce5;
-  color:#9d5068;
-  padding:10px 18px;
-  border-radius:20px;
-  font-weight:bold;
-}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 18px 60px;
-}
-
-h1{
-  color:#d86f91;
-}
-
-h2{
-  color:#d86f91;
-  margin-top:0;
-}
-
-.card{
-  background:white;
-  border-radius:22px;
-  padding:22px;
-  margin-bottom:20px;
-  box-shadow:0 5px 20px rgba(220,160,180,.12);
-  border:1px solid #f4e1e7;
-}
-
-input,textarea,select{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid #ead4dc;
-  border-radius:12px;
-  outline:none;
-  margin:6px 0 12px;
-  background:white;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-input:focus,textarea:focus,select:focus{
-  border-color:#e99ab2;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.btn{
-  border:0;
-  padding:11px 17px;
-  border-radius:12px;
-  font-weight:bold;
-  margin:3px;
-}
-
-.primary{
-  background:#ed7f9d;
-  color:white;
-}
-
-.green{
-  background:#dff4e8;
-  color:#34734c;
-}
-
-.red{
-  background:#ffe1e1;
-  color:#a74343;
-}
-
-.gray{
-  background:#eee;
-  color:#555;
-}
-
-.customer{
-  border:1px solid #f0dce4;
-  border-radius:18px;
-  padding:16px;
-  margin-top:12px;
-}
-
-.customer-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.customer-name{
-  font-size:18px;
-  font-weight:bold;
-  color:#d86f91;
-}
-
-.points{
-  font-size:20px;
-  font-weight:bold;
-}
-
-.small{
-  color:#9a8089;
-  font-size:13px;
-}
-
-.review{
-  border:1px solid #f0dce4;
-  padding:15px;
-  border-radius:16px;
-  margin-top:10px;
-}
-
-.stars{
-  color:#e6a329;
-  font-size:20px;
+  font-family:Arial,sans-serif;
+  background:#f6f7fb;
+  color:#222;
 }
 
 .login{
@@ -193,74 +27,188 @@ input:focus,textarea:focus,select:focus{
 
 .login-box{
   width:100%;
-  max-width:400px;
+  max-width:420px;
   background:white;
   padding:30px;
-  border-radius:25px;
-  box-shadow:0 10px 35px rgba(200,140,160,.18);
-  text-align:center;
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .login-box h1{
   margin-top:0;
+  text-align:center;
 }
 
-.hidden{
-  display:none!important;
+.login-box p{
+  text-align:center;
+  color:#777;
+}
+
+input,button{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  font-size:15px;
+}
+
+input{
+  border:1px solid #ddd;
+  margin-bottom:12px;
+}
+
+button{
+  border:0;
+  background:#111;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.error{
+  color:#d00;
+  text-align:center;
+  margin-top:10px;
+}
+
+#adminPage{
+  display:none;
+}
+
+header{
+  background:white;
+  padding:18px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.logout{
+  width:auto;
+  padding:9px 15px;
+  background:#eee;
+  color:#222;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:25px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.card small{
+  color:#777;
+}
+
+.card strong{
+  display:block;
+  font-size:28px;
+  margin-top:8px;
 }
 
 .tabs{
   display:flex;
   gap:8px;
-  overflow:auto;
+  overflow-x:auto;
   margin-bottom:20px;
 }
 
 .tab{
+  width:auto;
   white-space:nowrap;
-  border:0;
   background:white;
-  color:#8b6d78;
-  padding:11px 16px;
-  border-radius:20px;
+  color:#222;
+  border:1px solid #ddd;
 }
 
 .tab.active{
-  background:#ed7f9d;
+  background:#111;
   color:white;
 }
 
-.stat-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+.section{
+  display:none;
 }
 
-.stat{
-  background:#fff2f6;
-  border-radius:18px;
-  padding:18px;
-  text-align:center;
-}
-
-.stat strong{
+.section.active{
   display:block;
-  font-size:25px;
-  color:#d86f91;
 }
 
-@media(max-width:650px){
-  .grid{
-    grid-template-columns:1fr;
+.panel{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+}
+
+.action{
+  width:auto;
+  padding:7px 12px;
+  margin:2px;
+}
+
+.plus{
+  background:#16803c;
+}
+
+.minus{
+  background:#d22;
+}
+
+@media(max-width:800px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .stat-grid{
-    grid-template-columns:1fr;
+  table{
+    font-size:13px;
+  }
+}
+
+@media(max-width:500px){
+  .cards{
+    grid-template-columns:1fr 1fr;
   }
 
-  .customer-top{
-    align-items:flex-start;
-    flex-direction:column;
+  .container{
+    padding:12px;
   }
 }
 </style>
@@ -271,741 +219,553 @@ input:focus,textarea:focus,select:focus{
 <!-- LOGIN -->
 <div id="loginPage" class="login">
   <div class="login-box">
-    <h1>🔐 Admin</h1>
-    <p>เข้าสู่ระบบจัดการ Kataiy.credit-points</p>
+    <h1>🐰 Katay.credit-points</h1>
+    <p>Admin Login</p>
 
     <input
-      id="adminPassword"
-      type="password"
-      placeholder="รหัสผ่าน Admin"
+      id="email"
+      type="email"
+      placeholder="Gmail"
     >
 
-    <button class="btn primary" style="width:100%" onclick="login()">
-      🔓 เข้าสู่ระบบ
-    </button>
+    <input
+      id="password"
+      type="password"
+      placeholder="รหัสผ่าน"
+    >
 
-    <p id="loginError" class="small"></p>
+    <button onclick="login()">เข้าสู่ระบบ</button>
+
+    <div id="loginError" class="error"></div>
   </div>
 </div>
 
 
 <!-- ADMIN -->
-<div id="adminPage" class="hidden">
+<div id="adminPage">
 
 <header>
-  <div class="header-inner">
-
-    <div class="logo">
-      Kataiy.credit-points
-      <span>ADMIN PANEL</span>
-    </div>
-
-    <button class="logout" onclick="logout()">
-      🚪 ออกจากระบบ
-    </button>
-
-  </div>
+  <div class="logo">🐰 Katay.credit-points Admin</div>
+  <button class="logout" onclick="logout()">ออกจากระบบ</button>
 </header>
-
 
 <div class="container">
 
-  <h1>⚙️ ระบบจัดการหลังบ้าน</h1>
+  <!-- DASHBOARD -->
+  <div class="cards">
 
-  <div class="stat-grid">
-
-    <div class="stat">
-      <strong id="totalCustomers">0</strong>
-      ลูกค้าทั้งหมด
+    <div class="card">
+      <small>ลูกค้าทั้งหมด</small>
+      <strong id="customerCount">0</strong>
     </div>
 
-    <div class="stat">
-      <strong id="totalPlus">0</strong>
-      Plus One
+    <div class="card">
+      <small>เครดิตรวม</small>
+      <strong id="creditTotal">0</strong>
     </div>
 
-    <div class="stat">
-      <strong id="totalMinus">0</strong>
-      Minus One
+    <div class="card">
+      <small>จำนวน +1</small>
+      <strong id="plusCount">0</strong>
+    </div>
+
+    <div class="card">
+      <small>จำนวน -1</small>
+      <strong id="minusCount">0</strong>
     </div>
 
   </div>
 
-  <br>
 
-
+  <!-- TABS -->
   <div class="tabs">
 
-    <button class="tab active" onclick="showTab('customers',this)">
-      👤 ลูกค้า
+    <button
+      class="tab active"
+      onclick="showTab('customers',this)">
+      👥 ลูกค้า
     </button>
 
-    <button class="tab" onclick="showTab('reviews',this)">
+    <button
+      class="tab"
+      onclick="showTab('reviews',this)">
       ⭐ รีวิว
     </button>
 
-    <button class="tab" onclick="showTab('credit',this)">
-      👍 เครดิต
-    </button>
-
-    <button class="tab" onclick="showTab('website',this)">
-      ✏️ แก้ไขเว็บไซต์
+    <button
+      class="tab"
+      onclick="showTab('credits',this)">
+      💳 เครดิต
     </button>
 
   </div>
 
 
   <!-- CUSTOMERS -->
-  <section id="customers" class="tabContent">
+  <div id="customers" class="section active">
 
-    <div class="card">
+    <div class="panel">
 
-      <h2>➕ เพิ่มลูกค้า</h2>
+      <h2>👥 ลูกค้า</h2>
 
-      <div class="grid">
+      <table>
 
-        <div>
-          <label>ชื่อลูกค้า</label>
-          <input id="newName" placeholder="ชื่อหรือชื่อเล่นลูกค้า">
-        </div>
+        <thead>
+          <tr>
+            <th>ชื่อ</th>
+            <th>เครดิต</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
 
-        <div>
-          <label>คะแนนเริ่มต้น</label>
-          <input id="newPoints" type="number" value="0">
-        </div>
+        <tbody id="customerTable">
+        </tbody>
 
-      </div>
-
-      <button class="btn primary" onclick="addCustomer()">
-        ➕ เพิ่มลูกค้า
-      </button>
+      </table>
 
     </div>
 
-
-    <div class="card">
-
-      <h2>👤 จัดการลูกค้า</h2>
-
-      <input
-        id="customerSearch"
-        placeholder="🔎 ค้นหาชื่อลูกค้า..."
-        oninput="renderCustomers()"
-      >
-
-      <div id="customerList"></div>
-
-    </div>
-
-  </section>
+  </div>
 
 
   <!-- REVIEWS -->
-  <section id="reviews" class="tabContent hidden">
+  <div id="reviews" class="section">
 
-    <div class="card">
+    <div class="panel">
 
-      <h2>⭐ รีวิวจากลูกค้า</h2>
+      <h2>⭐ รีวิว</h2>
 
-      <div id="reviewList"></div>
+      <table>
+
+        <thead>
+          <tr>
+            <th>ลูกค้า</th>
+            <th>ข้อความ</th>
+            <th>คะแนน</th>
+          </tr>
+        </thead>
+
+        <tbody id="reviewTable">
+        </tbody>
+
+      </table>
 
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- CREDIT -->
-  <section id="credit" class="tabContent hidden">
+  <!-- CREDITS -->
+  <div id="credits" class="section">
 
-    <div class="card">
+    <div class="panel">
 
-      <h2>👍 ระบบเครดิต</h2>
+      <h2>💳 จัดการเครดิต</h2>
 
       <p>
-        <b>Plus One</b> =
-        จำนวนเครดิตด้านบวก
+        เลือกลูกค้าแล้วกด +1 เพื่อเพิ่มเครดิต
+        หรือ -1 เพื่อหักเครดิต
       </p>
 
-      <p>
-        <b>Minus One</b> =
-        จำนวนรายการเครดิตด้านลบ
-      </p>
-
-      <div class="grid">
-
-        <div>
-          <label>Plus One</label>
-          <input id="plusInput" type="number" min="0" value="0">
-        </div>
-
-        <div>
-          <label>Minus One</label>
-          <input id="minusInput" type="number" min="0" value="0">
-        </div>
-
-      </div>
-
-      <button class="btn primary" onclick="saveCredit()">
-        💾 บันทึกเครดิต
-      </button>
+      <div id="creditList"></div>
 
     </div>
 
-
-    <div class="card">
-
-      <h2>📷 หลักฐาน Minus One</h2>
-
-      <div id="minusList"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- WEBSITE -->
-  <section id="website" class="tabContent hidden">
-
-    <div class="card">
-
-      <h2>✏️ แก้ไขข้อความในเว็บไซต์</h2>
-
-      <p class="small">
-        ตรงนี้สามารถเตรียมข้อความที่ต้องการให้หน้าเว็บไซต์แสดงได้
-      </p>
-
-      <label>ชื่อร้าน</label>
-      <input id="siteName">
-
-      <label>หัวข้อหลัก</label>
-      <input id="siteTitle">
-
-      <label>คำอธิบาย</label>
-      <textarea id="siteDescription"></textarea>
-
-      <label>ข้อความปุ่มค้นหา</label>
-      <input id="searchButtonText">
-
-      <label>ข้อความส่วนรีวิว</label>
-      <input id="reviewTitle">
-
-      <button class="btn primary" onclick="saveWebsite()">
-        💾 บันทึกข้อความเว็บไซต์
-      </button>
-
-    </div>
-
-  </section>
+  </div>
 
 </div>
 </div>
 
 
-<script>
+<!-- FIREBASE -->
+<script type="module">
 
-const ADMIN_PASSWORD = "123456";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-let customers =
-  JSON.parse(localStorage.getItem("customers") || "[]");
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-let reviews =
-  JSON.parse(localStorage.getItem("reviews") || "[]");
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  updateDoc,
+  increment
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-let credit =
-  JSON.parse(localStorage.getItem("creditData") || '{"plus":0,"minus":0}');
 
-let website =
-  JSON.parse(localStorage.getItem("websiteData") || "{}");
+/*
+========================================
+ใส่ Firebase Config ของโปรเจกต์ตรงนี้
+========================================
+*/
+
+const firebaseConfig = {
+  apiKey: "ใส่_API_KEY",
+  authDomain: "ใส่_PROJECT_ID.firebaseapp.com",
+  projectId: "ใส่_PROJECT_ID",
+  storageBucket: "ใส่_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "ใส่_SENDER_ID",
+  appId: "ใส่_APP_ID"
+};
 
 
-function login(){
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* LOGIN */
+
+window.login = async function(){
+
+  const email =
+    document.getElementById("email").value.trim();
 
   const password =
-    document.getElementById("adminPassword").value;
+    document.getElementById("password").value;
 
-  if(password === ADMIN_PASSWORD){
+  const error =
+    document.getElementById("loginError");
 
-    sessionStorage.setItem("adminLogin","true");
+  error.textContent = "";
 
-    document
-      .getElementById("loginPage")
-      .classList.add("hidden");
+  if(!email || !password){
+    error.textContent =
+      "กรุณากรอก Gmail และรหัสผ่าน";
+    return;
+  }
 
-    document
-      .getElementById("adminPage")
-      .classList.remove("hidden");
+  try{
 
-    loadAdmin();
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(e){
+
+    console.error(e);
+
+    error.textContent =
+      "Gmail หรือรหัสผ่านไม่ถูกต้อง";
+
+  }
+
+};
+
+
+/* LOGOUT */
+
+window.logout = async function(){
+
+  await signOut(auth);
+
+};
+
+
+/* AUTH */
+
+onAuthStateChanged(auth,(user)=>{
+
+  if(user){
+
+    document.getElementById("loginPage").style.display="none";
+
+    document.getElementById("adminPage").style.display="block";
+
+    loadCustomers();
+    loadReviews();
 
   }else{
 
-    document.getElementById("loginError").textContent =
-      "❌ รหัสผ่านไม่ถูกต้อง";
+    document.getElementById("loginPage").style.display="flex";
+
+    document.getElementById("adminPage").style.display="none";
 
   }
-}
+
+});
 
 
-function logout(){
+/* TAB */
 
-  sessionStorage.removeItem("adminLogin");
-
-  location.reload();
-
-}
-
-
-function showTab(id,button){
+window.showTab = function(id,button){
 
   document
-    .querySelectorAll(".tabContent")
-    .forEach(x => x.classList.add("hidden"));
-
-  document
-    .getElementById(id)
-    .classList.remove("hidden");
+    .querySelectorAll(".section")
+    .forEach(x=>x.classList.remove("active"));
 
   document
     .querySelectorAll(".tab")
-    .forEach(x => x.classList.remove("active"));
+    .forEach(x=>x.classList.remove("active"));
+
+  document
+    .getElementById(id)
+    .classList.add("active");
 
   button.classList.add("active");
 
+};
+
+
+/* CUSTOMERS */
+
+async function loadCustomers(){
+
+  const table =
+    document.getElementById("customerTable");
+
+  const creditList =
+    document.getElementById("creditList");
+
+  table.innerHTML="";
+  creditList.innerHTML="";
+
+  let count=0;
+  let total=0;
+
+  try{
+
+    const snapshot =
+      await getDocs(collection(db,"customers"));
+
+    snapshot.forEach((item)=>{
+
+      count++;
+
+      const data=item.data();
+
+      const name =
+        data.name ||
+        data.email ||
+        item.id;
+
+      const credit =
+        Number(data.credit || 0);
+
+      total += credit;
+
+
+      table.innerHTML += `
+
+        <tr>
+
+          <td>${escapeHtml(name)}</td>
+
+          <td>${credit}</td>
+
+          <td>
+
+            <button
+              class="action plus"
+              onclick="changeCredit('${item.id}',1)">
+              +1
+            </button>
+
+            <button
+              class="action minus"
+              onclick="changeCredit('${item.id}',-1)">
+              -1
+            </button>
+
+          </td>
+
+        </tr>
+
+      `;
+
+
+      creditList.innerHTML += `
+
+        <div
+          style="
+          padding:15px;
+          border-bottom:1px solid #eee;
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          gap:10px;
+          "
+        >
+
+          <div>
+
+            <b>${escapeHtml(name)}</b>
+
+            <div>
+              เครดิต:
+              <strong>${credit}</strong>
+            </div>
+
+          </div>
+
+          <div>
+
+            <button
+              class="action plus"
+              onclick="changeCredit('${item.id}',1)">
+              +1
+            </button>
+
+            <button
+              class="action minus"
+              onclick="changeCredit('${item.id}',-1)">
+              -1
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    });
+
+
+    document.getElementById("customerCount")
+      .textContent=count;
+
+    document.getElementById("creditTotal")
+      .textContent=total;
+
+  }catch(e){
+
+    console.error(e);
+
+    table.innerHTML=
+      "<tr><td colspan='3'>โหลดข้อมูลไม่สำเร็จ</td></tr>";
+
+  }
+
 }
 
 
-function saveCustomers(){
+/* CHANGE CREDIT */
 
-  localStorage.setItem(
-    "customers",
-    JSON.stringify(customers)
-  );
+window.changeCredit = async function(id,value){
 
-}
+  const text =
+    value > 0
+      ? "ต้องการเพิ่มเครดิต +1 ใช่ไหม?"
+      : "ต้องการหักเครดิต -1 ใช่ไหม?";
 
-
-function addCustomer(){
-
-  const name =
-    document.getElementById("newName").value.trim();
-
-  const points =
-    Number(document.getElementById("newPoints").value);
-
-  if(!name){
-
-    alert("กรุณาใส่ชื่อลูกค้า");
-
+  if(!confirm(text)){
     return;
   }
 
-  if(isNaN(points) || points < 0){
+  try{
 
-    alert("กรุณาใส่คะแนนให้ถูกต้อง");
-
-    return;
-  }
-
-  const id =
-    "KT" +
-    String(customers.length + 1).padStart(3,"0");
-
-  customers.push({
-    id:id,
-    name:name,
-    points:points
-  });
-
-  saveCustomers();
-
-  document.getElementById("newName").value="";
-  document.getElementById("newPoints").value="0";
-
-  renderCustomers();
-
-  alert("เพิ่มลูกค้าสำเร็จ 💗");
-
-}
-
-
-function renderCustomers(){
-
-  const list =
-    document.getElementById("customerList");
-
-  const search =
-    document
-      .getElementById("customerSearch")
-      .value
-      .toLowerCase();
-
-  list.innerHTML="";
-
-  const filtered =
-    customers.filter(c =>
-      c.name.toLowerCase().includes(search)
+    await updateDoc(
+      doc(db,"customers",id),
+      {
+        credit: increment(value)
+      }
     );
 
-  if(filtered.length === 0){
+    await loadCustomers();
 
-    list.innerHTML =
-      "<p class='small'>ยังไม่มีลูกค้า</p>";
+    alert(
+      value > 0
+        ? "เพิ่มเครดิตเรียบร้อยแล้ว"
+        : "หักเครดิตเรียบร้อยแล้ว"
+    );
 
-    return;
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "ไม่สามารถแก้เครดิตได้"
+    );
+
   }
 
-  filtered.forEach((customer)=>{
-
-    const div =
-      document.createElement("div");
-
-    div.className="customer";
-
-    div.innerHTML=`
-
-      <div class="customer-top">
-
-        <div>
-          <div class="customer-name">
-            ${escapeHTML(customer.name)}
-          </div>
-
-          <div class="small">
-            ID: ${customer.id}
-          </div>
-        </div>
-
-        <div class="points">
-          💎 ${customer.points} คะแนน
-        </div>
-
-      </div>
-
-      <hr>
-
-      <button
-        class="btn green"
-        onclick="changePoints('${customer.id}',1)"
-      >
-        ➕ เพิ่ม 1
-      </button>
-
-      <button
-        class="btn red"
-        onclick="changePoints('${customer.id}',-1)"
-      >
-        ➖ ลด 1
-      </button>
-
-      <button
-        class="btn gray"
-        onclick="editCustomer('${customer.id}')"
-      >
-        ✏️ แก้ไข
-      </button>
-
-      <button
-        class="btn red"
-        onclick="deleteCustomer('${customer.id}')"
-      >
-        🗑️ ลบ
-      </button>
-
-    `;
-
-    list.appendChild(div);
-
-  });
-
-}
+};
 
 
-function changePoints(id,amount){
+/* REVIEWS */
 
-  const customer =
-    customers.find(c => c.id === id);
+async function loadReviews(){
 
-  if(!customer) return;
+  const table =
+    document.getElementById("reviewTable");
 
-  customer.points =
-    Math.max(0,Number(customer.points)+amount);
+  table.innerHTML="";
 
-  saveCustomers();
+  try{
 
-  renderCustomers();
+    const snapshot =
+      await getDocs(collection(db,"reviews"));
 
-}
+    snapshot.forEach((item)=>{
 
+      const data=item.data();
 
-function editCustomer(id){
+      const name =
+        data.name ||
+        data.email ||
+        "-";
 
-  const customer =
-    customers.find(c => c.id === id);
+      const message =
+        data.message ||
+        data.text ||
+        "-";
 
-  if(!customer) return;
+      const rating =
+        data.rating ||
+        data.score ||
+        "-";
 
-  const name =
-    prompt("แก้ไขชื่อลูกค้า:",customer.name);
+      table.innerHTML += `
 
-  if(name === null) return;
+        <tr>
 
-  const points =
-    prompt("แก้ไขคะแนน:",customer.points);
+          <td>${escapeHtml(name)}</td>
 
-  if(points === null) return;
+          <td>${escapeHtml(message)}</td>
 
-  customer.name =
-    name.trim() || customer.name;
+          <td>${escapeHtml(String(rating))}</td>
 
-  customer.points =
-    Math.max(0,Number(points) || 0);
+        </tr>
 
-  saveCustomers();
+      `;
 
-  renderCustomers();
+    });
 
-}
+  }catch(e){
 
+    console.error(e);
 
-function deleteCustomer(id){
+    table.innerHTML=
+      "<tr><td colspan='3'>ยังไม่มีข้อมูลรีวิว</td></tr>";
 
-  const customer =
-    customers.find(c => c.id === id);
-
-  if(!customer) return;
-
-  if(!confirm(
-    "ต้องการลบลูกค้า "+customer.name+" ใช่หรือไม่?"
-  )) return;
-
-  customers =
-    customers.filter(c => c.id !== id);
-
-  saveCustomers();
-
-  renderCustomers();
-
-}
-
-
-function saveCredit(){
-
-  const plus =
-    Number(document.getElementById("plusInput").value);
-
-  const minus =
-    Number(document.getElementById("minusInput").value);
-
-  credit = {
-    plus:Math.max(0,plus || 0),
-    minus:Math.max(0,minus || 0)
-  };
-
-  localStorage.setItem(
-    "creditData",
-    JSON.stringify(credit)
-  );
-
-  updateStats();
-
-  alert("บันทึกเครดิตเรียบร้อย ❤️");
-
-}
-
-
-function renderReviews(){
-
-  const list =
-    document.getElementById("reviewList");
-
-  list.innerHTML="";
-
-  if(reviews.length===0){
-
-    list.innerHTML =
-      "<p class='small'>ยังไม่มีรีวิว</p>";
-
-    return;
   }
 
-  reviews.forEach((review,index)=>{
-
-    const div =
-      document.createElement("div");
-
-    div.className="review";
-
-    const stars =
-      "★".repeat(Number(review.stars)||0) +
-      "☆".repeat(5-(Number(review.stars)||0));
-
-    div.innerHTML=`
-
-      <div class="stars">${stars}</div>
-
-      <b>${escapeHTML(review.name || "ลูกค้า")}</b>
-
-      <p>
-        ${escapeHTML(review.text || "")}
-      </p>
-
-      <button
-        class="btn red"
-        onclick="deleteReview(${index})"
-      >
-        🗑️ ลบรีวิว
-      </button>
-
-    `;
-
-    list.appendChild(div);
-
-  });
-
 }
 
 
-function deleteReview(index){
+/* SECURITY */
 
-  if(!confirm("ต้องการลบรีวิวนี้หรือไม่?"))
-    return;
-
-  reviews.splice(index,1);
-
-  localStorage.setItem(
-    "reviews",
-    JSON.stringify(reviews)
-  );
-
-  renderReviews();
-
-}
-
-
-function renderMinus(){
-
-  const list =
-    document.getElementById("minusList");
-
-  list.innerHTML =
-    "<p class='small'>จำนวน Minus One ปัจจุบัน: "+
-    credit.minus+
-    "</p>";
-
-}
-
-
-function saveWebsite(){
-
-  website = {
-
-    name:
-      document.getElementById("siteName").value,
-
-    title:
-      document.getElementById("siteTitle").value,
-
-    description:
-      document.getElementById("siteDescription").value,
-
-    searchButton:
-      document.getElementById("searchButtonText").value,
-
-    reviewTitle:
-      document.getElementById("reviewTitle").value
-
-  };
-
-  localStorage.setItem(
-    "websiteData",
-    JSON.stringify(website)
-  );
-
-  alert(
-    "บันทึกข้อความเรียบร้อย ❤️"
-  );
-
-}
-
-
-function loadWebsite(){
-
-  document.getElementById("siteName").value =
-    website.name || "";
-
-  document.getElementById("siteTitle").value =
-    website.title || "";
-
-  document.getElementById("siteDescription").value =
-    website.description || "";
-
-  document.getElementById("searchButtonText").value =
-    website.searchButton || "";
-
-  document.getElementById("reviewTitle").value =
-    website.reviewTitle || "";
-
-}
-
-
-function updateStats(){
-
-  document.getElementById("totalCustomers").textContent =
-    customers.length;
-
-  document.getElementById("totalPlus").textContent =
-    credit.plus;
-
-  document.getElementById("totalMinus").textContent =
-    credit.minus;
-
-  document.getElementById("plusInput").value =
-    credit.plus;
-
-  document.getElementById("minusInput").value =
-    credit.minus;
-
-}
-
-
-function loadAdmin(){
-
-  updateStats();
-
-  renderCustomers();
-
-  renderReviews();
-
-  renderMinus();
-
-  loadWebsite();
-
-}
-
-
-function escapeHTML(text){
+function escapeHtml(text){
 
   return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-if(sessionStorage.getItem("adminLogin")==="true"){
-
-  document
-    .getElementById("loginPage")
-    .classList.add("hidden");
-
-  document
-    .getElementById("adminPage")
-    .classList.remove("hidden");
-
-  loadAdmin();
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
