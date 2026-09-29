@@ -350,39 +350,36 @@ input:focus {
 <div id="adminPage">
 
 <header>
-  <div class="logo">🐰 Katay.credit-points Admin</div>
+  <div class="logo">🐰 Katay.credit-points</div>
   <button class="logout" onclick="logout()">ออกจากระบบ</button>
 </header>
 
 <div class="container">
 
-  <!-- DASHBOARD -->
   <div class="cards">
 
     <div class="card">
-      <small>ลูกค้าทั้งหมด</small>
+      <small>👥 ลูกค้าทั้งหมด</small>
       <strong id="customerCount">0</strong>
     </div>
 
     <div class="card">
-      <small>เครดิตรวม</small>
+      <small>💳 เครดิตรวม</small>
       <strong id="creditTotal">0</strong>
     </div>
 
     <div class="card">
-      <small>จำนวน +1</small>
+      <small>➕ เพิ่มเครดิต</small>
       <strong id="plusCount">0</strong>
     </div>
 
     <div class="card">
-      <small>จำนวน -1</small>
+      <small>➖ หักเครดิต</small>
       <strong id="minusCount">0</strong>
     </div>
 
   </div>
 
-
-  <!-- TABS -->
   <div class="tabs">
 
     <button
@@ -405,20 +402,18 @@ input:focus {
 
   </div>
 
-
-  <!-- CUSTOMERS -->
   <div id="customers" class="section active">
 
     <div class="panel">
 
-      <h2>👥 ลูกค้า</h2>
+      <h2>👥 รายชื่อลูกค้า</h2>
 
       <table>
 
         <thead>
           <tr>
-            <th>ชื่อ</th>
-            <th>points</th>
+            <th>ชื่อลูกค้า</th>
+            <th>เครดิต</th>
             <th>จัดการ</th>
           </tr>
         </thead>
@@ -432,13 +427,11 @@ input:focus {
 
   </div>
 
-
-  <!-- REVIEWS -->
   <div id="reviews" class="section">
 
     <div class="panel">
 
-      <h2>⭐ รีวิว</h2>
+      <h2>⭐ รีวิวจากลูกค้า</h2>
 
       <table>
 
@@ -459,8 +452,6 @@ input:focus {
 
   </div>
 
-
-  <!-- CREDITS -->
   <div id="credits" class="section">
 
     <div class="panel">
@@ -468,8 +459,7 @@ input:focus {
       <h2>💳 จัดการเครดิต</h2>
 
       <p>
-        เลือกลูกค้าแล้วกด +1 เพื่อเพิ่มเครดิต
-        หรือ -1 เพื่อหักเครดิต
+        เลือกลูกค้าแล้วกดปุ่มเพื่อเพิ่มหรือลดเครดิต
       </p>
 
       <div id="creditList"></div>
@@ -479,8 +469,8 @@ input:focus {
   </div>
 
 </div>
-</div>
 
+</div>
 
 <!-- FIREBASE -->
 <script type="module">
