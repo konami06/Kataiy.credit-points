@@ -96,8 +96,10 @@ footer{text-align:center;padding:24px;color:#a18aa5;font-size:12px}
 
 <footer>© Kataiy.credit-points ♡</footer>
 
-<script>
-function showSection(id){
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
