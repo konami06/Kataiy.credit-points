@@ -104,6 +104,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebas
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
 }
+  window.showSection = showSection;
 function searchCustomer(){
   const name=document.getElementById('searchName').value.trim();
   const box=document.getElementById('searchResult');
@@ -112,6 +113,7 @@ function searchCustomer(){
     ?'ยังไม่มีข้อมูลลูกค้าในฐานข้อมูล กรุณารอเชื่อม Firebase ก่อนค่ะ'
     :'กรุณากรอกชื่อหรือรหัสลูกค้าก่อนค่ะ';
 }
+  window.searchCustomer = searchCustomer;
 function searchPoints(){
   const name=document.getElementById('pointName').value.trim();
   const box=document.getElementById('pointResult');
@@ -120,6 +122,7 @@ function searchPoints(){
     ?'ยังโหลดแต้มสะสมไม่ได้ เนื่องจากต้องเชื่อม Firebase ก่อนค่ะ'
     :'กรุณากรอกชื่อหรือรหัสลูกค้าก่อนค่ะ';
 }
+  window.searchPoints = searchPoints;
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCTQ9_SzgB0oqLbPKii6Da3X7xO-zJBGyM",
